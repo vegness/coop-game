@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3 uid="uid://lobby001"]
+
+[ext_resource type="Script" path="res://ui/Lobby/Lobby.gd" id="1_lobby"]
+
+[sub_resource type="StyleBoxFlat" id="sb_panel"]
+bg_color = Color(0.961, 0.902, 0.827, 1)
+border_color = Color(0.361, 0.239, 0.18, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lobby")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.960784, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -240.0
+offset_right = 200.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="LobbyTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "联机大厅"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 30
+
+[node name="RoomPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_panel")
+
+[node name="RoomVBox" type="VBoxContainer" parent="VBoxContainer/RoomPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer/RoomPanel/RoomVBox"]
+layout_mode = 2
+text = "未连接"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 15
+
+[node name="IPRow" type="HBoxContainer" parent="VBoxContainer/RoomPanel/RoomVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="IPLabel" type="Label" parent="VBoxContainer/RoomPanel/RoomVBox/IPRow"]
+layout_mode = 2
+text = "IP 地址："
+theme_override_font_sizes/font_size = 15
+
+[node name="IPInput" type="LineEdit" parent="VBoxContainer/RoomPanel/RoomVBox/IPRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+placeholder_text = "输入主机 IP（如 192.168.1.5）"
+
+[node name="BtnRow" type="HBoxContainer" parent="VBoxContainer/RoomPanel/RoomVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CreateBtn" type="Button" parent="VBoxContainer/RoomPanel/RoomVBox/BtnRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "创建房间"
+mouse_default_cursor_shape = 2
+
+[node name="JoinBtn" type="Button" parent="VBoxContainer/RoomPanel/RoomVBox/BtnRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "加入房间"
+mouse_default_cursor_shape = 2
+
+[node name="PlayerListTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "房间玩家"
+theme_override_font_sizes/font_size = 15
+
+[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EnterModeBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "进入模式选择（主机）"
+disabled = true
+mouse_default_cursor_shape = 2
+
+[node name="HintLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "连接成功后由主机选择模式"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+
+[node name="BackBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "返回主菜单"
+mouse_default_cursor_shape = 2

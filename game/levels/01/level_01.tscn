@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cy8pugv67rp3h"]
+
+[ext_resource type="Script" uid="uid://gfxr2eigesu2" path="res://levels/01/level_01.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://hbmkyac5274o" path="res://levels/01/level1.png" id="2_bg"]
+[ext_resource type="PackedScene" uid="uid://hud001" path="res://ui/HUD/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://bssm83hpu4iij" path="res://mechanisms/spark/spark.tscn" id="4_spark"]
+[ext_resource type="PackedScene" uid="uid://cmnphaeoap23a" path="res://mechanisms/trigger/door.tscn" id="5_lruek"]
+[ext_resource type="PackedScene" uid="uid://cb7nf4b047635" path="res://mechanisms/trigger/trigger.tscn" id="6_u2hmn"]
+[ext_resource type="PackedScene" path="res://mechanisms/portal/portal.tscn" id="7_portal"]
+[ext_resource type="PackedScene" uid="uid://dk1wjgwo1gxvh" path="res://ui/LevelClear/LevelClear.tscn" id="8_levelclear"]
+
+[sub_resource type="RectangleShape2D" id="Rect_left_ground"]
+size = Vector2(1392.4, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_right_ground"]
+size = Vector2(1336.4, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_bridge"]
+size = Vector2(428, 28)
+
+[sub_resource type="RectangleShape2D" id="Rect_tall_wall"]
+size = Vector2(152, 240)
+
+[sub_resource type="RectangleShape2D" id="Rect_upper_block"]
+size = Vector2(999.6, 500)
+
+[sub_resource type="RectangleShape2D" id="Rect_right_platform"]
+size = Vector2(276.2, 119.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my3em"]
+size = Vector2(208, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lruek"]
+size = Vector2(209, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2hmn"]
+size = Vector2(20, 891)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1b5"]
+size = Vector2(43, 630)
+
+[node name="Level01" type="Node2D" unique_id=1099062792]
+script = ExtResource("1_script")
+level_id = 1
+level_name = "第一关：炸弹工坊"
+chapter_theme = "工厂"
+forced_chicken_type = "res://scenes/chick.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1668107240]
+z_index = -10
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_bg")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2103968076]
+collision_mask = 0
+
+[node name="LeftGround" type="CollisionShape2D" parent="Floor" unique_id=432582863]
+position = Vector2(696.2, 688)
+shape = SubResource("Rect_left_ground")
+
+[node name="RightGround" type="CollisionShape2D" parent="Floor" unique_id=213344426]
+position = Vector2(2532.2, 688)
+shape = SubResource("Rect_right_ground")
+
+[node name="Bridge" type="CollisionShape2D" parent="Floor" unique_id=79235095]
+position = Vector2(1634, 494)
+shape = SubResource("Rect_bridge")
+
+[node name="TallWall" type="CollisionShape2D" parent="Floor" unique_id=1697591030]
+position = Vector2(2036, 536)
+shape = SubResource("Rect_tall_wall")
+
+[node name="UpperBlock" type="CollisionShape2D" parent="Floor" unique_id=127876182]
+position = Vector2(2699.8, 250)
+shape = SubResource("Rect_upper_block")
+
+[node name="RightPlatform" type="CollisionShape2D" parent="Floor" unique_id=1445559435]
+position = Vector2(2338.1, 540.2)
+shape = SubResource("Rect_right_platform")
+
+[node name="Wall1" type="CollisionShape2D" parent="Floor" unique_id=188780478]
+position = Vector2(488, 628)
+shape = SubResource("RectangleShape2D_my3em")
+
+[node name="Wall2" type="CollisionShape2D" parent="Floor" unique_id=1279475758]
+position = Vector2(903.5, 593)
+shape = SubResource("RectangleShape2D_lruek")
+
+[node name="_L" type="CollisionShape2D" parent="Floor" unique_id=1088067083]
+position = Vector2(-10, 356.5)
+shape = SubResource("RectangleShape2D_u2hmn")
+
+[node name="_R" type="CollisionShape2D" parent="Floor" unique_id=601077513]
+position = Vector2(3221.5, 405)
+shape = SubResource("RectangleShape2D_wh1b5")
+
+[node name="SpawnPoint1" type="Marker2D" parent="." unique_id=575253310]
+position = Vector2(80, 632)
+
+[node name="SpawnPoint2" type="Marker2D" parent="." unique_id=107484494]
+position = Vector2(140, 632)
+
+[node name="SpawnPoint3" type="Marker2D" parent="." unique_id=1451860384]
+position = Vector2(200, 632)
+
+[node name="SpawnPoint4" type="Marker2D" parent="." unique_id=2012008100]
+position = Vector2(260, 632)
+
+[node name="Eggs" type="Node2D" parent="." unique_id=1531667534]
+
+[node name="EggSpawner" type="MultiplayerSpawner" parent="Eggs" unique_id=581769036]
+_spawnable_scenes = PackedStringArray("uid://eggbase001")
+spawn_path = NodePath("..")
+
+[node name="Spark" parent="." unique_id=2123916421 instance=ExtResource("4_spark")]
+position = Vector2(2146, 515)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+wall_x = 2112.0
+
+[node name="HUDLayer" parent="." unique_id=2041424623 instance=ExtResource("3_hud")]
+
+[node name="Door" parent="." unique_id=1739815327 instance=ExtResource("5_lruek")]
+position = Vector2(2980, 536.00006)
+scale = Vector2(30, 30)
+
+[node name="Trigger" parent="." unique_id=1513669213 instance=ExtResource("6_u2hmn")]
+position = Vector2(2567, 639)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+linked_mechanisms = Array[NodePath]([NodePath("../Door")])
+
+[node name="Portal" parent="." unique_id=-2094967295 instance=ExtResource("7_portal")]
+position = Vector2(3118, 579)
+scale = Vector2(2, 2)
+
+[node name="LevelClear" parent="." unique_id=-2094967294 instance=ExtResource("8_levelclear")]

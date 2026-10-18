@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bssm83hpu4iij"]
+
+[ext_resource type="Texture2D" uid="uid://ikltkvepkiu8" path="res://mechanisms/spark/spark.png" id="1_r6667"]
+[ext_resource type="Script" uid="uid://dx7lh01pocisc" path="res://mechanisms/spark/spark.gd" id="2_script"]
+
+[node name="spark" type="Node2D" unique_id=325751889]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=697129081]
+texture = ExtResource("1_r6667")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1633352778]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1849560102]
+polygon = PackedVector2Array(-8, -216, 8, -216, 155, 72, 67, 72, 67, 167, -67, 168, -67, 75, -155, 75)
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=235657978]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea" unique_id=1261040278]
+polygon = PackedVector2Array(-8, -216, 8, -216, 155, 72, 67, 72, 67, 167, -67, 168, -67, 75, -155, 75)

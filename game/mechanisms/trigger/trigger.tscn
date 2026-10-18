@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cb7nf4b047635"]
+
+[ext_resource type="Texture2D" uid="uid://b36d7hxidu3c1" path="res://mechanisms/trigger/trigger_up.png" id="1_up"]
+[ext_resource type="Script" uid="uid://bcji5lja7msrc" path="res://mechanisms/trigger/trigger.gd" id="3_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_hitbox"]
+size = Vector2(320, 122)
+
+[node name="Trigger" type="Area2D" unique_id=2094281629]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("3_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=192401889]
+z_index = -1
+texture = ExtResource("1_up")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31265813]
+position = Vector2(0, 29)
+shape = SubResource("Rect_hitbox")

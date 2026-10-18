@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://mechanisms/haystack/haystack.png" id="1_tex"]
+[ext_resource type="Script" path="res://mechanisms/haystack/haystack.gd" id="2_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_body"]
+size = Vector2(160, 96)
+
+[sub_resource type="CircleShape2D" id="Circle_peek"]
+radius = 26.0
+
+[node name="Haystack" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(80, 72)
+shape = SubResource("Rect_body")
+
+[node name="PeekArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PeekArea"]
+position = Vector2(80, 30)
+shape = SubResource("Circle_peek")

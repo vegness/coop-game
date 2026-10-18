@@ -1,0 +1,215 @@
+[gd_scene load_steps=3 format=3 uid="uid://battlemodeselect001"]
+
+[ext_resource type="Script" path="res://ui/BattleModeSelect/BattleModeSelect.gd" id="1_bms"]
+
+[sub_resource type="StyleBoxFlat" id="sb_panel"]
+bg_color = Color(0.961, 0.902, 0.827, 1)
+border_color = Color(0.361, 0.239, 0.18, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+
+[node name="BattleModeSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bms")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.960784, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "选择对战玩法"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+
+[node name="HintLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "（由主机选择玩法，全员同步进入）"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+
+[node name="PreviewBox" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(440, 230)
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_panel")
+
+[node name="PreviewImage" type="TextureRect" parent="VBoxContainer/PreviewBox"]
+visible = false
+layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Placeholder" type="Control" parent="VBoxContainer/PreviewBox"]
+layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlaceholderBg" type="ColorRect" parent="VBoxContainer/PreviewBox/Placeholder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.957, 0.827, 0.369, 1)
+
+[node name="PlaceholderName" type="Label" parent="VBoxContainer/PreviewBox/Placeholder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "竞速赛"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 34
+
+[node name="PlaceholderDesc" type="Label" parent="VBoxContainer/PreviewBox/Placeholder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 24.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "先到终点者胜"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="SelectRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PrevBtn" type="Button" parent="VBoxContainer/SelectRow"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "◀"
+mouse_default_cursor_shape = 2
+
+[node name="ModeBtn" type="Button" parent="VBoxContainer/SelectRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "竞速赛"
+mouse_default_cursor_shape = 2
+
+[node name="NextBtn" type="Button" parent="VBoxContainer/SelectRow"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "▶"
+mouse_default_cursor_shape = 2
+
+[node name="MixedBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "混合模式（选择 2 种以上玩法轮换）"
+mouse_default_cursor_shape = 2
+
+[node name="BackBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "返回模式选择"
+mouse_default_cursor_shape = 2
+
+[node name="MixedPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -160.0
+offset_right = 200.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("sb_panel")
+
+[node name="MixedVBox" type="VBoxContainer" parent="MixedPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MixedTitle" type="Label" parent="MixedPanel/MixedVBox"]
+layout_mode = 2
+text = "选择要混合的玩法（至少 2 种）"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="MixedCheckList" type="VBoxContainer" parent="MixedPanel/MixedVBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MixedBtnRow" type="HBoxContainer" parent="MixedPanel/MixedVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MixedConfirmBtn" type="Button" parent="MixedPanel/MixedVBox/MixedBtnRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "确定"
+mouse_default_cursor_shape = 2
+
+[node name="MixedCancelBtn" type="Button" parent="MixedPanel/MixedVBox/MixedBtnRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "取消"
+mouse_default_cursor_shape = 2

@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://hud001"]
+
+[ext_resource type="Script" path="res://ui/HUD/HUD.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel"]
+layout_mode = 2
+text = "关卡 1"
+theme_override_font_sizes/font_size = 18
+
+[node name="GoalProgress" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel"]
+layout_mode = 2
+text = "目标：0/1"
+theme_override_font_sizes/font_size = 14
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="MarginContainer/HBoxContainer/RightPanel"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="PauseBtn" type="Button" parent="MarginContainer/HBoxContainer/RightPanel"]
+layout_mode = 2
+text = "暂停"
+size_flags_horizontal = 4
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="PauseBg" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="PauseVBox" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -110.0
+offset_right = 120.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PauseLabel" type="Label" parent="PauseMenu/PauseVBox"]
+layout_mode = 2
+text = "已暂停"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/PauseVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+text = "继续游戏"
+mouse_default_cursor_shape = 2
+
+[node name="RestartBtn" type="Button" parent="PauseMenu/PauseVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+text = "重新开始"
+mouse_default_cursor_shape = 2
+
+[node name="MenuBtn" type="Button" parent="PauseMenu/PauseVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+text = "返回主菜单"
+mouse_default_cursor_shape = 2

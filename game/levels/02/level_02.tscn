@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://dq05bsmc0dn4x"]
+
+[ext_resource type="Script" uid="uid://bydumqfwhxelx" path="res://levels/02/level_02.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://clsr05ftbydv1" path="res://levels/02/level2.png" id="2_bg"]
+[ext_resource type="PackedScene" uid="uid://hud001" path="res://ui/HUD/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://cb7nf4b047635" path="res://mechanisms/trigger/trigger.tscn" id="4_trigger"]
+[ext_resource type="PackedScene" uid="uid://cmnphaeoap23a" path="res://mechanisms/trigger/door.tscn" id="5_door"]
+[ext_resource type="PackedScene" path="res://mechanisms/portal/portal.tscn" id="6_portal"]
+[ext_resource type="PackedScene" uid="uid://dk1wjgwo1gxvh" path="res://ui/LevelClear/LevelClear.tscn" id="7_levelclear"]
+[ext_resource type="PackedScene" path="res://mechanisms/movingfloor/movingfloor.tscn" id="8_movingfloor"]
+[ext_resource type="PackedScene" uid="uid://b4cfmo5cbkjqb" path="res://mechanisms/fan/fan.tscn" id="9_fan"]
+[ext_resource type="PackedScene" uid="uid://cspk2fa0spike" path="res://mechanisms/spike_2/spike_2.tscn" id="10_spike"]
+
+[sub_resource type="RectangleShape2D" id="Rect_left_ground"]
+size = Vector2(1196, 63)
+
+[sub_resource type="RectangleShape2D" id="Rect_middle_ground"]
+size = Vector2(1336, 63)
+
+[sub_resource type="RectangleShape2D" id="Rect_pillar_body"]
+size = Vector2(388, 391)
+
+[sub_resource type="RectangleShape2D" id="Rect_pillar_ceiling"]
+size = Vector2(388, 119)
+
+[sub_resource type="RectangleShape2D" id="Rect_right_ground"]
+size = Vector2(188, 63)
+
+[sub_resource type="RectangleShape2D" id="Rect_wall"]
+size = Vector2(48, 800)
+
+[node name="Level02" type="Node2D" unique_id=1782323628]
+script = ExtResource("1_script")
+level_id = 2
+level_name = "第二关：机关大杂烩"
+chapter_theme = "风扇与尖刺"
+forced_chicken_type = "res://player/subclasses/infinite/InfiniteChicken.tscn"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=771009995]
+z_index = -10
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_bg")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=907840069]
+collision_mask = 0
+
+[node name="LeftGround" type="CollisionShape2D" parent="Floor" unique_id=925328254]
+position = Vector2(598, 687.5)
+shape = SubResource("Rect_left_ground")
+
+[node name="MiddleGround" type="CollisionShape2D" parent="Floor" unique_id=329777755]
+position = Vector2(3048, 687.5)
+shape = SubResource("Rect_middle_ground")
+
+[node name="PillarBody" type="CollisionShape2D" parent="Floor" unique_id=360126344]
+position = Vector2(2910, 459.5)
+shape = SubResource("Rect_pillar_body")
+
+[node name="PillarCeiling" type="CollisionShape2D" parent="Floor" unique_id=852887048]
+position = Vector2(2910, 59.5)
+shape = SubResource("Rect_pillar_ceiling")
+
+[node name="RightGround" type="CollisionShape2D" parent="Floor" unique_id=645891359]
+position = Vector2(4706, 687.5)
+shape = SubResource("Rect_right_ground")
+
+[node name="WallL" type="CollisionShape2D" parent="Floor" unique_id=500565549]
+position = Vector2(-24, 400)
+shape = SubResource("Rect_wall")
+
+[node name="WallR" type="CollisionShape2D" parent="Floor" unique_id=190736690]
+position = Vector2(4824, 400)
+shape = SubResource("Rect_wall")
+
+[node name="SpawnPoint1" type="Marker2D" parent="." unique_id=1357613472]
+position = Vector2(80, 632)
+
+[node name="SpawnPoint2" type="Marker2D" parent="." unique_id=637111440]
+position = Vector2(140, 632)
+
+[node name="SpawnPoint3" type="Marker2D" parent="." unique_id=446508357]
+position = Vector2(200, 632)
+
+[node name="SpawnPoint4" type="Marker2D" parent="." unique_id=1812966104]
+position = Vector2(260, 632)
+
+[node name="Eggs" type="Node2D" parent="." unique_id=187833479]
+
+[node name="EggSpawner" type="MultiplayerSpawner" parent="Eggs" unique_id=1129403857]
+_spawnable_scenes = PackedStringArray("uid://eggbase001")
+spawn_path = NodePath("..")
+
+[node name="MovingFloor" parent="." unique_id=1348923712 instance=ExtResource("8_movingfloor")]
+position = Vector2(2200, 475)
+
+[node name="Button1" parent="." unique_id=1517389211 instance=ExtResource("4_trigger")]
+position = Vector2(600, 641)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="Button2" parent="." unique_id=987080091 instance=ExtResource("4_trigger")]
+position = Vector2(766, 641)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="Button3" parent="." unique_id=2038809851 instance=ExtResource("4_trigger")]
+position = Vector2(933, 641)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="Button4" parent="." unique_id=1789252037 instance=ExtResource("4_trigger")]
+position = Vector2(1100.0001, 640.00006)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="Fan" parent="." unique_id=1518102018 instance=ExtResource("9_fan")]
+position = Vector2(2627, 624)
+
+[node name="FanButtonGround" parent="." unique_id=370273603 instance=ExtResource("4_trigger")]
+position = Vector2(2450.0002, 640.00006)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="FanButtonPillar" parent="." unique_id=287185940 instance=ExtResource("4_trigger")]
+position = Vector2(3050.0002, 251.00002)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+
+[node name="Door" parent="." unique_id=1535435456 instance=ExtResource("5_door")]
+position = Vector2(2901.0002, 184)
+scale = Vector2(20, 20)
+clip_y = 120.0
+
+[node name="DoorButton" parent="." unique_id=1064316362 instance=ExtResource("4_trigger")]
+position = Vector2(2750, 250)
+scale = Vector2(0.2, 0.2)
+require_weight = 0.5
+linked_mechanisms = Array[NodePath]([NodePath("../Door")])
+
+[node name="Spike_0" parent="." unique_id=1522721555 instance=ExtResource("10_spike")]
+position = Vector2(3715, 699)
+
+[node name="Spike_1" parent="." unique_id=2113356347 instance=ExtResource("10_spike")]
+position = Vector2(3747, 699)
+
+[node name="Spike_2" parent="." unique_id=407589747 instance=ExtResource("10_spike")]
+position = Vector2(3779, 699)
+
+[node name="Spike_3" parent="." unique_id=1494091915 instance=ExtResource("10_spike")]
+position = Vector2(3811, 699)
+
+[node name="Spike_4" parent="." unique_id=251347847 instance=ExtResource("10_spike")]
+position = Vector2(3843, 699)
+
+[node name="Spike_5" parent="." unique_id=1084309889 instance=ExtResource("10_spike")]
+position = Vector2(3875, 699)
+
+[node name="Spike_6" parent="." unique_id=385371132 instance=ExtResource("10_spike")]
+position = Vector2(3907, 699)
+
+[node name="Spike_7" parent="." unique_id=914334556 instance=ExtResource("10_spike")]
+position = Vector2(3939, 699)
+
+[node name="Spike_8" parent="." unique_id=1034762761 instance=ExtResource("10_spike")]
+position = Vector2(3971, 699)
+
+[node name="Spike_9" parent="." unique_id=1721953963 instance=ExtResource("10_spike")]
+position = Vector2(4003, 699)
+
+[node name="Spike_10" parent="." unique_id=836159513 instance=ExtResource("10_spike")]
+position = Vector2(4035, 699)
+
+[node name="Spike_11" parent="." unique_id=1982237867 instance=ExtResource("10_spike")]
+position = Vector2(4067, 699)
+
+[node name="Spike_12" parent="." unique_id=1002377639 instance=ExtResource("10_spike")]
+position = Vector2(4099, 699)
+
+[node name="Spike_13" parent="." unique_id=1444333924 instance=ExtResource("10_spike")]
+position = Vector2(4131, 699)
+
+[node name="Spike_14" parent="." unique_id=1501552591 instance=ExtResource("10_spike")]
+position = Vector2(4163, 699)
+
+[node name="Spike_15" parent="." unique_id=1324852832 instance=ExtResource("10_spike")]
+position = Vector2(4195, 699)
+
+[node name="Spike_16" parent="." unique_id=1613940487 instance=ExtResource("10_spike")]
+position = Vector2(4227, 699)
+
+[node name="Spike_17" parent="." unique_id=1206861219 instance=ExtResource("10_spike")]
+position = Vector2(4259, 699)
+
+[node name="Spike_18" parent="." unique_id=1360672589 instance=ExtResource("10_spike")]
+position = Vector2(4291, 699)
+
+[node name="Spike_19" parent="." unique_id=443055115 instance=ExtResource("10_spike")]
+position = Vector2(4323, 699)
+
+[node name="Spike_20" parent="." unique_id=124321322 instance=ExtResource("10_spike")]
+position = Vector2(4355, 699)
+
+[node name="Spike_21" parent="." unique_id=13173381 instance=ExtResource("10_spike")]
+position = Vector2(4387, 699)
+
+[node name="Spike_22" parent="." unique_id=1372806010 instance=ExtResource("10_spike")]
+position = Vector2(4419, 699)
+
+[node name="Spike_23" parent="." unique_id=1376599803 instance=ExtResource("10_spike")]
+position = Vector2(4451, 699)
+
+[node name="Spike_24" parent="." unique_id=1649341023 instance=ExtResource("10_spike")]
+position = Vector2(4483, 699)
+
+[node name="Spike_25" parent="." unique_id=884031406 instance=ExtResource("10_spike")]
+position = Vector2(4515, 699)
+
+[node name="Spike_26" parent="." unique_id=180590581 instance=ExtResource("10_spike")]
+position = Vector2(4547, 699)
+
+[node name="Spike_27" parent="." unique_id=1503318361 instance=ExtResource("10_spike")]
+position = Vector2(4579, 699)
+
+[node name="Portal" parent="." unique_id=569054802 instance=ExtResource("6_portal")]
+position = Vector2(4700, 600)
+scale = Vector2(2, 2)
+
+[node name="HUDLayer" parent="." unique_id=621844077 instance=ExtResource("3_hud")]
+
+[node name="LevelClear" parent="." unique_id=1607340588 instance=ExtResource("7_levelclear")]
+visible = false

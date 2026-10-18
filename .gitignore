@@ -1,0 +1,9 @@
+
+# --- added when publishing ---
+.godot/
+node_modules/
+build/
+*.exe
+*.tmp
+Thumbs.db
+.DS_Store

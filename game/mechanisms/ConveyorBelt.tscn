@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://mechanisms/ConveyorBelt.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_belt"]
+size = Vector2(600, 24)
+
+[node name="ConveyorBelt" type="Area2D"]
+script = ExtResource("1_script")
+
+[node name="BeltVisual" type="Polygon2D" parent="."]
+color = Color(0.55, 0.72, 0.85, 0.45)
+polygon = PackedVector2Array(-300, -12, 300, -12, 300, 12, -300, 12)
+
+[node name="Arrow1" type="Polygon2D" parent="."]
+color = Color(0.2, 0.4, 0.6, 0.9)
+polygon = PackedVector2Array(-250, 0, -230, -7, -230, 7)
+
+[node name="Arrow2" type="Polygon2D" parent="."]
+color = Color(0.2, 0.4, 0.6, 0.9)
+polygon = PackedVector2Array(-100, 0, -80, -7, -80, 7)
+
+[node name="Arrow3" type="Polygon2D" parent="."]
+color = Color(0.2, 0.4, 0.6, 0.9)
+polygon = PackedVector2Array(50, 0, 70, -7, 70, 7)
+
+[node name="Arrow4" type="Polygon2D" parent="."]
+color = Color(0.2, 0.4, 0.6, 0.9)
+polygon = PackedVector2Array(200, 0, 220, -7, 220, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Rect_belt")

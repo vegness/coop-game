@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://mainmenu001"]
+
+[ext_resource type="Script" uid="uid://glv32si8m1rc" path="res://ui/MainMenu/MainMenu.gd" id="1_mainmenu"]
+
+[node name="MainMenu" type="Control" unique_id=897623217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mainmenu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=605987327]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.960784, 1)
+
+[node name="DecorLayer" type="Control" parent="." unique_id=1346555884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Center" type="CenterContainer" parent="." unique_id=69246055]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center" unique_id=709593333]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleEn" type="Label" parent="Center/VBox" unique_id=2006704316]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Chicken Co-op"
+horizontal_alignment = 1
+
+[node name="TitleZh" type="Label" parent="Center/VBox" unique_id=1741483883]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "鸡鸡大营救"
+horizontal_alignment = 1
+
+[node name="ButtonsPanel" type="PanelContainer" parent="Center/VBox" unique_id=1853708171]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="Center/VBox/ButtonsPanel" unique_id=1116859961]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SingleBtn" type="Button" parent="Center/VBox/ButtonsPanel/ButtonsVBox" unique_id=30931561]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "单人硬行"
+
+[node name="MultiBtn" type="Button" parent="Center/VBox/ButtonsPanel/ButtonsVBox" unique_id=174171234]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "多人模式"
+
+[node name="SettingsBtn" type="Button" parent="Center/VBox/ButtonsPanel/ButtonsVBox" unique_id=666602010]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "设置"
+
+[node name="QuitBtn" type="Button" parent="Center/VBox/ButtonsPanel/ButtonsVBox" unique_id=928890814]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "退出游戏"
+
+[node name="ChickRow" type="HBoxContainer" parent="." unique_id=428074195]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = 190.0
+offset_right = 380.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1

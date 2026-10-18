@@ -1,0 +1,6 @@
+[gd_scene load_steps=3 format=3 uid="uid://iceegg001"]
+
+[ext_resource type="Script" path="res://player/subclasses/ice/IceEgg.gd" id="1_iceegg"]
+
+[node name="IceEgg" type="RigidBody2D"]
+script = ExtResource("1_iceegg")

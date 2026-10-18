@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cmnphaeoap23a"]
+
+[ext_resource type="Script" uid="uid://cw2pvc5yi0may" path="res://mechanisms/trigger/door.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_door"]
+size = Vector2(2, 8)
+
+[sub_resource type="RectangleShape2D" id="Rect_crush"]
+size = Vector2(2, 8)
+
+[node name="Door" type="Node2D" unique_id=1631629981]
+script = ExtResource("1_script")
+
+[node name="DoorVisual" type="Polygon2D" parent="." unique_id=646334578]
+color = Color(1, 0.549, 0.259, 1)
+polygon = PackedVector2Array(-1, -4, 1, -4, 1, 4, -1, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1241756089]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=932939030]
+shape = SubResource("Rect_door")
+
+[node name="CrushArea" type="Area2D" parent="." unique_id=485975994]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushArea" unique_id=839739285]
+shape = SubResource("Rect_crush")

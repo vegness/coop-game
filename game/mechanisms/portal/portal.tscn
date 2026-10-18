@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://mechanisms/portal/portal.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cfkipmbbguy7l" path="res://res/Sheet/PORTAL BLUE-Sheet.png" id="2_sheet"]
+
+[sub_resource type="CircleShape2D" id="Circle_single"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="Circle_multi"]
+radius = 56.0
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_script")
+sheet_texture = ExtResource("2_sheet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="SingleCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SingleCheck"]
+shape = SubResource("Circle_single")
+
+[node name="MultiCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MultiCheck"]
+shape = SubResource("Circle_multi")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b4cfmo5cbkjqb"]
+
+[ext_resource type="Script" uid="uid://dx1wdv5ssvfir" path="res://mechanisms/fan/fan.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_hazard"]
+size = Vector2(58, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_wind"]
+size = Vector2(100, 436)
+
+[node name="Fan" type="Node2D" unique_id=205188203]
+script = ExtResource("1_script")
+
+[node name="Base" type="Polygon2D" parent="." unique_id=45763046]
+z_index = 1
+scale = Vector2(2, 2)
+color = Color(0.25, 0.2, 0.3, 1)
+polygon = PackedVector2Array(2, 10, 30, 10, 30, 16, 2, 16)
+
+[node name="FanSprite" type="AnimatedSprite2D" parent="." unique_id=1060943727]
+z_index = 2
+scale = Vector2(2, 2)
+centered = false
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=853495984]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=1680119548]
+position = Vector2(32, 23)
+shape = SubResource("Rect_hazard")
+
+[node name="WindArea" type="Area2D" parent="." unique_id=91767968]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea" unique_id=1838658116]
+position = Vector2(32, -206)
+shape = SubResource("Rect_wind")

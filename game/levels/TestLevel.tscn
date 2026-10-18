@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dhc0uaxg43unm"]
+
+[ext_resource type="Script" uid="uid://ce5v6mx6sextq" path="res://levels/LevelBase.gd" id="1_levelbase"]
+[ext_resource type="PackedScene" uid="uid://hud001" path="res://ui/HUD/HUD.tscn" id="2_hud"]
+
+[sub_resource type="RectangleShape2D" id="ground_shape"]
+size = Vector2(1280, 64)
+
+[sub_resource type="RectangleShape2D" id="plat1_shape"]
+size = Vector2(200, 16)
+
+[sub_resource type="RectangleShape2D" id="plat2_shape"]
+size = Vector2(160, 16)
+
+[node name="TestLevel" type="Node2D" unique_id=1296497871]
+script = ExtResource("1_levelbase")
+level_name = "测试关卡"
+time_limit = 120.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1368031884]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.15, 0.2, 0.3, 1)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=285053457]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1599012790]
+position = Vector2(640, 688)
+shape = SubResource("ground_shape")
+
+[node name="GroundVisual" type="ColorRect" parent="Ground" unique_id=1243920446]
+offset_top = 656.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.35, 0.55, 0.25, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1763025492]
+position = Vector2(350, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=356979621]
+shape = SubResource("plat1_shape")
+
+[node name="PlatformVisual" type="ColorRect" parent="Platform1" unique_id=1204366880]
+offset_left = -100.0
+offset_top = -8.0
+offset_right = 100.0
+offset_bottom = 8.0
+color = Color(0.45, 0.35, 0.2, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=332687327]
+position = Vector2(750, 420)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=2144675861]
+shape = SubResource("plat2_shape")
+
+[node name="PlatformVisual" type="ColorRect" parent="Platform2" unique_id=1350069391]
+offset_left = -80.0
+offset_top = -8.0
+offset_right = 80.0
+offset_bottom = 8.0
+color = Color(0.45, 0.35, 0.2, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1916271483]
+position = Vector2(1050, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=168005942]
+shape = SubResource("plat2_shape")
+
+[node name="PlatformVisual" type="ColorRect" parent="Platform3" unique_id=708239835]
+offset_left = -80.0
+offset_top = -8.0
+offset_right = 80.0
+offset_bottom = 8.0
+color = Color(0.45, 0.35, 0.2, 1)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=66332858]
+position = Vector2(200, 620)
+
+[node name="HUDLayer" parent="." unique_id=2015716338 instance=ExtResource("2_hud")]

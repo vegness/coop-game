@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://mechanisms/platform_rot/platform_rot.png" id="1_tex"]
+[ext_resource type="Script" path="res://mechanisms/platform_rot/platform_rot.gd" id="2_script"]
+
+[sub_resource type="RectangleShape2D" id="Rect_body"]
+size = Vector2(160, 32)
+
+[node name="PlatformRot" type="AnimatableBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Rect_body")

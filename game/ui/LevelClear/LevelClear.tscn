@@ -1,0 +1,290 @@
+[gd_scene format=3 uid="uid://dk1wjgwo1gxvh"]
+
+[ext_resource type="Script" uid="uid://dht5ei28tecm8" path="res://ui/LevelClear/LevelClear.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://fgpmd1weiagi" path="res://res/fonts/PressStart2P-Regular.ttf" id="2_font_en"]
+[ext_resource type="Texture2D" uid="uid://dkari02ya0wsl" path="res://res/ui/MainMenu/assets/chick/yellow.png" id="3_chick_y"]
+[ext_resource type="Texture2D" uid="uid://cjoknhcq73rt4" path="res://res/ui/MainMenu/assets/chick/blue.png" id="4_chick_b"]
+[ext_resource type="Texture2D" uid="uid://cd4va26xscbfu" path="res://res/ui/MainMenu/assets/chick/pink.png" id="5_chick_p"]
+[ext_resource type="Texture2D" uid="uid://b1uxh2l2l6xy4" path="res://res/ui/MainMenu/assets/egg/egg.png" id="6_egg"]
+
+[sub_resource type="StyleBoxFlat" id="Sbox_dialog_outer"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3608, 0.2392, 0.1804, 1)
+
+[sub_resource type="StyleBoxFlat" id="Sbox_dialog_inner"]
+bg_color = Color(0.9608, 0.902, 0.8275, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.8314, 0.6392, 1)
+
+[sub_resource type="StyleBoxFlat" id="Sbox_btn_next"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.549, 0.2588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3608, 0.2392, 0.1804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Sbox_btn_retry"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3569, 0.7529, 0.9216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3608, 0.2392, 0.1804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Sbox_btn_back"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9686, 0.6824, 0.9725, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3608, 0.2392, 0.1804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="LevelClear" type="CanvasLayer" unique_id=1828739770]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1079976831]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 0.8314, 0.6392, 0.502)
+
+[node name="Dialog" type="Panel" parent="." unique_id=2068003713]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -260.0
+offset_right = 400.0
+offset_bottom = 260.0
+theme_override_styles/panel = SubResource("Sbox_dialog_outer")
+
+[node name="Inner" type="Panel" parent="Dialog" unique_id=564535165]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+theme_override_styles/panel = SubResource("Sbox_dialog_inner")
+
+[node name="Title" type="Label" parent="Dialog/Inner" unique_id=1468777037]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 0.549, 0.2588, 1)
+theme_override_colors/font_outline_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 40
+text = "LEVEL CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stars" type="HBoxContainer" parent="Dialog/Inner" unique_id=772407158]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 110.0
+offset_right = 120.0
+offset_bottom = 170.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Star1" type="Label" parent="Dialog/Inner/Stars" unique_id=1517633059]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.8275, 0.3686, 1)
+theme_override_colors/font_outline_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 48
+text = "*"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star2" type="Label" parent="Dialog/Inner/Stars" unique_id=954694966]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.8275, 0.3686, 1)
+theme_override_colors/font_outline_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 48
+text = "*"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star3" type="Label" parent="Dialog/Inner/Stars" unique_id=740735306]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9569, 0.8275, 0.3686, 1)
+theme_override_colors/font_outline_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 48
+text = "*"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data" type="VBoxContainer" parent="Dialog/Inner" unique_id=759249301]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 280.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Dialog/Inner/Data" unique_id=2134715234]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 20
+text = "TIME  00:00"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Dialog/Inner/Data" unique_id=1560458293]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 20
+text = "SCORE  3"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Dialog/Inner" unique_id=382520191]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -110.0
+offset_right = 360.0
+offset_bottom = -30.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="NextBtn" type="Button" parent="Dialog/Inner/Buttons" unique_id=1814155638]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9961, 0.9608, 1)
+theme_override_colors/font_pressed_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Sbox_btn_next")
+theme_override_styles/pressed = SubResource("Sbox_btn_next")
+theme_override_styles/hover = SubResource("Sbox_btn_next")
+theme_override_styles/focus = SubResource("Sbox_btn_next")
+text = "NEXT"
+
+[node name="RetryBtn" type="Button" parent="Dialog/Inner/Buttons" unique_id=98480745]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9961, 0.9608, 1)
+theme_override_colors/font_pressed_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Sbox_btn_retry")
+theme_override_styles/pressed = SubResource("Sbox_btn_retry")
+theme_override_styles/hover = SubResource("Sbox_btn_retry")
+theme_override_styles/focus = SubResource("Sbox_btn_retry")
+text = "RETRY"
+
+[node name="BackBtn" type="Button" parent="Dialog/Inner/Buttons" unique_id=1817659115]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9961, 0.9608, 1)
+theme_override_colors/font_pressed_color = Color(0.3608, 0.2392, 0.1804, 1)
+theme_override_fonts/font = ExtResource("2_font_en")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Sbox_btn_back")
+theme_override_styles/pressed = SubResource("Sbox_btn_back")
+theme_override_styles/hover = SubResource("Sbox_btn_back")
+theme_override_styles/focus = SubResource("Sbox_btn_back")
+text = "BACK"
+
+[node name="DecorChick1" type="TextureRect" parent="Dialog" unique_id=632234373]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 265.0
+offset_right = 1232.0
+offset_bottom = 905.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_chick_y")
+
+[node name="DecorChick2" type="TextureRect" parent="Dialog" unique_id=1162245363]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 122.00001
+offset_right = 672.0
+offset_bottom = 762.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_chick_b")
+
+[node name="DecorChick3" type="TextureRect" parent="Dialog" unique_id=1207382508]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 66.0
+offset_right = 1167.0
+offset_bottom = 706.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_chick_p")
+
+[node name="DecorEgg1" type="TextureRect" parent="Dialog" unique_id=314070989]
+layout_mode = 0
+offset_left = -138.0
+offset_top = 216.0
+offset_right = -68.0
+offset_bottom = 286.0
+texture = ExtResource("6_egg")
+
+[node name="DecorEgg2" type="TextureRect" parent="Dialog" unique_id=1991434807]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 182.0
+offset_right = 896.0
+offset_bottom = 252.0
+texture = ExtResource("6_egg")

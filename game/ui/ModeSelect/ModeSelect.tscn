@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://modeselect001"]
+
+[ext_resource type="Script" path="res://ui/ModeSelect/ModeSelect.gd" id="1_ms"]
+
+[sub_resource type="StyleBoxFlat" id="sb_panel"]
+bg_color = Color(0.961, 0.902, 0.827, 1)
+border_color = Color(0.361, 0.239, 0.18, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+
+[node name="ModeSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ms")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.960784, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "选择模式"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="HintLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "（由主机选择，选择后全员同步进入）"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_panel")
+
+[node name="ModeVBox" type="VBoxContainer" parent="VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CoopBtn" type="Button" parent="VBoxContainer/Panel/ModeVBox"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "多人闯关（合作）"
+mouse_default_cursor_shape = 2
+
+[node name="VsBtn" type="Button" parent="VBoxContainer/Panel/ModeVBox"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "多人对战（竞技）"
+mouse_default_cursor_shape = 2
+
+[node name="BackBtn" type="Button" parent="VBoxContainer/Panel/ModeVBox"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "返回大厅"
+mouse_default_cursor_shape = 2

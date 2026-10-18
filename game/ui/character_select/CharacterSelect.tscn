@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://charselect001"]
+
+[ext_resource type="Script" path="res://ui/character_select/CharacterSelect.gd" id="1_main"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.960784, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TitleLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+text = "选择你的小鸡"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+
+[node name="SlotsRow" type="HBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 22
+
+[node name="BottomRow" type="HBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 24
+
+[node name="BackBtn" type="Button" parent="Center/VBox/BottomRow"]
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+text = "返回"
+
+[node name="StartBtn" type="Button" parent="Center/VBox/BottomRow"]
+custom_minimum_size = Vector2(180, 44)
+layout_mode = 2
+text = "开始游戏"
